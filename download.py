@@ -7,7 +7,6 @@ import warnings
 import random
 import numpy as np
 import pandas as pd
-from tqdm.notebook import tqdm
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import *
@@ -18,10 +17,10 @@ warnings.filterwarnings("ignore")
 def get_file(query):
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
-    prefs = {"profile.default_content_settings.popups": 0,
-                 "download.default_directory": 
-                            r"C:\Users\YangWang\Desktop\Stock-Option\stock\\", 
-                 "directory_upgrade": True}
+    prefs = {
+		"profile.default_content_settings.popups": 0, 
+		"download.default_directory": r"C:\Users\YangWang\Desktop\Stock-Option\stock\\", 
+		"directory_upgrade": True}
     options.add_experimental_option("prefs", prefs)
     driver_path = r"./chromedriver.exe"
     driver = webdriver.Chrome(driver_path, options=options)
@@ -29,6 +28,7 @@ def get_file(query):
     url = "http://www.cboe.com/delayedquote/quote-table-download"
     driver.get(url)
     time.sleep(2 + random.random())
+    driver.delete_all_cookies()
 
     soup = BeautifulSoup(driver.page_source, "html.parser")
     input_element = driver.find_element_by_xpath('//*[@id="txtTicker"]')
