@@ -19,7 +19,7 @@ def get_file(query):
     options.add_argument("--start-maximized")
     prefs = {
 		"profile.default_content_settings.popups": 0, 
-		"download.default_directory": r"C:\Users\YangWang\Desktop\Stock-Option\stock\\", 
+		"download.default_directory": r"{}\stock\\".format(os.getcwd()), 
 		"directory_upgrade": True}
     options.add_experimental_option("prefs", prefs)
     driver_path = r"./chromedriver.exe"
