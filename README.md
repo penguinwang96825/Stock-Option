@@ -4,12 +4,16 @@
 1. Download python 3.7.3 from [here](https://www.python.org/ftp/python/3.7.3/python-3.7.3.exe)
 2. Download cmder from [here](https://github.com/cmderdev/cmder/releases/download/v1.3.15/cmder.zip)
 3. Run code below in cmder:
-```python
+```console
+git clone https://github.com/penguinwang96825/Stock-Option.git
+```
+4. Run code below in cmder:
+```console
 pip install -r requirement.txt
 ```
 
 ## Call Put Calulation
-```python
+```console
 python calculate.py
 ```
 
@@ -17,6 +21,6 @@ python calculate.py
 1. Modify `stock_config.txt` file and seperate by ENTER.
 2. Run code below: 
 
-```python
+```console
 python download.py
 ```
